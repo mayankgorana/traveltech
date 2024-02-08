@@ -23,7 +23,7 @@ window.setInterval(changePicture, 5000);
 let i = 0;
 function changePicture() {
   i++;
-  if (i > images.length - 1)  i = 0;  // If i is greater than or equal to images.length - 1, it means we've reached or exceeded the last index of the array. In that case, i is reset to 0
+  if (i > images.length - 1) i = 0;  // If i is greater than or equal to images.length - 1, it means we've reached or exceeded the last index of the array. In that case, i is reset to 0
   imageEl.style.backgroundImage = `url(${images[i]})`;
 }
 
@@ -96,4 +96,50 @@ gsap.from(".an-email", {
   y: -150,
   stagger: 0.25,
   delay: 0.4,
+});
+
+document.addEventListener('DOMContentLoaded', function () {
+  const subscribeForm = document.getElementById('subscribeForm');
+  const subscribeButton = document.getElementById('subscribeButton');
+
+  subscribeButton.addEventListener('click', async function (event) {
+    event.preventDefault();
+
+    const emailInput = document.getElementById('emailInput');
+    const email = emailInput.value;
+
+    try {
+      // Send a POST request to your server's /subscribe route
+      const response = await fetch('/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      });
+
+      if (response.ok) {
+        // Show SweetAlert success alert
+        Swal.fire({
+          position: 'center-center',
+          icon: 'success',
+          title: 'Thank you for subscribing!',
+          showConfirmButton: false,
+          timer: 30000
+        });
+        // Clear the email input field
+        emailInput.value = '';
+      } else {
+        console.error('Subscription failed');
+      }
+    } catch (error) {
+      console.error('Error subscribing:', error);
+      // Show SweetAlert error alert for subscription failure
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong! Please try again later.',
+      });
+    }
+  });
 });
