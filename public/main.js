@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function () {
           icon: 'success',
           title: 'Thank you for subscribing!',
           showConfirmButton: false,
-          timer: 30000
+          timer: 3000
         });
         // Clear the email input field
         emailInput.value = '';

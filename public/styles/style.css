@@ -423,12 +423,7 @@
 /* Form Section */
 
 .email {
-  background: linear-gradient(180deg,
-      rgba(0, 0, 0, 0.6) 0%,
-      rgba(0, 0, 0, 0.6) 35%,
-      rgba(0, 0, 0, 0.1) 100%),
-    url("../images/background-2.jpg") no-repeat center;
-  background-size: cover;
+  position: relative;
   height: 450px;
   width: 100%;
   padding: 5rem calc((100vw - 1300px) / 2);
@@ -438,10 +433,30 @@
   align-items: center;
 }
 
+.video-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dark-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Adjust opacity as needed */
+}
+
 .email__content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  z-index: 1;
 }
 
 .email__content h1 {
