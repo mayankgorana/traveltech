@@ -28,12 +28,39 @@ function changePicture() {
 }
 
 // Animations
+function loader() {
+  document.body.style.overflow = "hidden";
+
+  var tl = gsap.timeline();
+  tl.from("#loader h3", {
+    x: 60,
+    opacity: 0,
+    duration: 1.2,
+    stagger: 0.1,
+  })
+  tl.to("#loader h3", {
+    x: -40,
+    opacity: 0,
+    duration: 1,
+    stagger: 0.1,
+  })
+  tl.to("#loader", {
+    opacity: 0,
+  })
+  tl.to("#loader", {
+    display: "none",
+  })
+  tl.add(() => {
+    document.body.style.overflow = "auto";
+  });
+}
+
+loader();
 
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.from(".an-hero", {
   duration: 0.6,
-  opacity: 0,
   y: -150,
   stagger: 0.3,
 });
@@ -98,6 +125,7 @@ gsap.from(".an-email", {
   delay: 0.4,
 });
 
+// MailChimp Display and Error Handling
 document.addEventListener('DOMContentLoaded', function () {
   const subscribeForm = document.getElementById('subscribeForm');
   const subscribeButton = document.getElementById('subscribeButton');
@@ -123,23 +151,49 @@ document.addEventListener('DOMContentLoaded', function () {
         Swal.fire({
           position: 'center-center',
           icon: 'success',
-          title: 'Thank you for subscribing!',
+          title: 'Subscribed',
+          text: 'Thank you for subscribing our newsletter',
           showConfirmButton: false,
-          timer: 3000
+          timer: 1500,
         });
         // Clear the email input field
         emailInput.value = '';
       } else {
-        console.error('Subscription failed');
+        Swal.fire({
+          position: 'center-center',
+          icon: 'error',
+          title: 'Existing Subscriber',
+          text: 'This email is already subscribed our newsletter',
+        });
+
       }
     } catch (error) {
       console.error('Error subscribing:', error);
       // Show SweetAlert error alert for subscription failure
       Swal.fire({
+        position: 'center-center',
         icon: 'error',
         title: 'Oops...',
         text: 'Something went wrong! Please try again later.',
       });
     }
   });
+});
+
+// Openweather Display and Error Handling
+document.getElementById('get-weather').addEventListener('click', async () => {
+  const city = document.getElementById('city').value;
+
+  try {
+      const response = await fetch(`/weather?city=${encodeURIComponent(city)}`);
+      const weatherData = await response.json();
+
+      document.getElementById('weather-display').innerHTML = `
+          <p>Temperature: ${weatherData.temperature}°C</p>
+          <p>Description: ${weatherData.weatherDescription}</p>
+      `;
+  } catch (error) {
+      console.error('Error fetching weather:', error);
+      document.getElementById('weather-display').innerHTML = '<p>Error fetching weather data</p>';
+  }
 });
