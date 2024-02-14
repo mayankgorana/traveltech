@@ -1,5 +1,5 @@
 <%- include('partials/header.ejs') %>
-<!-- <div id="loader">
+  <!-- <div id="loader">
   <h3>Discover</h3>
   <h3>Your</h3>
   <h3>World</h3>
@@ -20,7 +20,7 @@
           <div class="email">
             <!-- https://player.vimeo.com/external/559560916.sd.mp4?s=05910a54129d4b5e0fc0e30670226757661fa74f&profile_id=164&oauth2_token_id=57447761 -->
             <!-- <video autoplay muted loop class="video-background">
-      <source
+      <source   
         src="https://player.vimeo.com/progressive_redirect/playback/728390125/rendition/360p/file.mp4?loc=external&oauth2_token_id=57447761&signature=d9f01b2adf87602b551097629c6de2d1cc2e84468b81278cad1def74802237e9"
         type="video/mp4">
 
@@ -37,6 +37,11 @@
                   <label for="email">
                     <input id="emailInput" type="email" name="email" placeholder="Enter your email" required />
                   </label>
+                  <div class="form__wrap">
+                    <label for="firstName">
+                      <input id="firstName" type="text" name="firstName" placeholder="Enter your first name" required />
+                    </label>
+                  </div>
                   <button id="subscribeButton" class="button" type="submit">Subscribe</button>
                 </div>
               </form>
@@ -48,4 +53,5 @@
           <br>
           <div id="weather-display"></div>
 
-  <%- include('partials/footer.ejs') %>
+
+          <%- include('partials/footer.ejs') %>

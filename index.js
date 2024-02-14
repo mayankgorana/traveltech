@@ -4,6 +4,7 @@ import express from 'express';
 import { config } from 'dotenv';
 import axios from 'axios';
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import { name } from 'ejs';
 
 config({ path: 'process.env' });
 
@@ -23,6 +24,9 @@ const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
 
 // Openweather API key
 const openWeatherMapApiKey = process.env.OPENWEATHERMAP_API_KEY;
+
+//Image Api Key
+const imageApiKey = process.env.IMAGE_API_KEY;
 
 // Initialize Mailchimp SDK
 mailchimp.setConfig({
@@ -47,6 +51,10 @@ app.get('/team', (req, res) => {
   res.render(`team.ejs`);
 });
 
+app.get('/kaushal_guide', (req, res) => {
+  res.render(`kaushal.ejs`);
+});
+
 // Weather endpoint
 app.get('/weather', async (req, res) => {
   const cityName = req.query.city;
@@ -68,13 +76,16 @@ app.get('/weather', async (req, res) => {
 
 // Route to handle subscription form submission
 app.post('/subscribe', async (req, res) => {
-  const { email } = req.body;
+  const { email, firstName } = req.body;
 
   try {
     // Add subscriber to Mailchimp audience
     const response = await mailchimp.lists.addListMember(audienceId, {
       email_address: email,
       status: 'subscribed', // Set the status to 'subscribed' to add the subscriber
+      merge_fields: {
+        FNAME: firstName // Update this line
+      }
     });
 
     console.log('Subscriber added:', response);
@@ -83,7 +94,7 @@ app.post('/subscribe', async (req, res) => {
     res.status(200).json({ message: 'Subscription successful' });
   } catch (error) {
     console.error('Error subscribing:', error)
-    ;
+      ;
     // Respond to the client with an error message
     res.status(500).json({ error: 'Subscription failed' });
   }

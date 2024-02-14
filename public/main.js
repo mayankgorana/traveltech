@@ -135,6 +135,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const emailInput = document.getElementById('emailInput');
     const email = emailInput.value;
+    const firstNameInput = document.getElementById('firstName'); // Update this line
+    const firstName = firstNameInput.value; // Update this line
 
     try {
       // Send a POST request to your server's /subscribe route
@@ -143,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email })
+        body: JSON.stringify({ email , firstName})
       });
 
       if (response.ok) {
