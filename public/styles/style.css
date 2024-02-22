@@ -9,6 +9,9 @@
   font-family: "Poppins", sans-serif;
 }
 
+body::-webkit-scrollbar {
+  display: none;
+}
 
 /* loader */
 #loader {
@@ -186,7 +189,6 @@
 }
 
 /* Services section */
-
 .services {
   padding: 8rem calc((100vw - 1200px) / 2);
 }

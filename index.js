@@ -23,10 +23,7 @@ const apiKey = process.env.MAILCHIMP_API_KEY;
 const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
 
 // Openweather API key
-const openWeatherMapApiKey = process.env.OPENWEATHERMAP_API_KEY;
-
-//Image Api Key
-const imageApiKey = process.env.IMAGE_API_KEY;
+// const openWeatherMapApiKey = process.env.OPENWEATHERMAP_API_KEY;
 
 // Initialize Mailchimp SDK
 mailchimp.setConfig({
@@ -56,36 +53,33 @@ app.get('/kaushal_guide', (req, res) => {
 });
 
 // Weather endpoint
-app.get('/weather', async (req, res) => {
-  const cityName = req.query.city;
+// app.get('/weather', async (req, res) => {
+//   const cityName = req.query.city;
 
-  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${openWeatherMapApiKey}`;
+//   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${openWeatherMapApiKey}`;
 
-  try {
-    const response = await axios.get(apiUrl);
-    const data = response.data;
+//   try {
+//     const response = await axios.get(apiUrl);
+//     const data = response.data;
 
-    const temperature = Math.round(data.main.temp - 273.15); // Convert from Kelvin to Celsius
-    const weatherDescription = data.weather[0].description;
-    res.json({ temperature, weatherDescription });
-  } catch (error) {
-    console.error('Error fetching weather:', error);
-    res.status(500).send('Error fetching weather data');
-  }
-});
+//     const temperature = Math.round(data.main.temp - 273.15); // Convert from Kelvin to Celsius
+//     const weatherDescription = data.weather[0].description;
+//     res.json({ temperature, weatherDescription });
+//   } catch (error) {
+//     console.error('Error fetching weather:', error);
+//     res.status(500).send('Error fetching weather data');
+//   }
+// });
 
 // Route to handle subscription form submission
 app.post('/subscribe', async (req, res) => {
-  const { email, firstName } = req.body;
+  const { email } = req.body;
 
   try {
     // Add subscriber to Mailchimp audience
     const response = await mailchimp.lists.addListMember(audienceId, {
       email_address: email,
       status: 'subscribed', // Set the status to 'subscribed' to add the subscriber
-      merge_fields: {
-        FNAME: firstName // Update this line
-      }
     });
 
     console.log('Subscriber added:', response);

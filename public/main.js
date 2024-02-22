@@ -23,7 +23,7 @@ window.setInterval(changePicture, 5000);
 let i = 0;
 function changePicture() {
   i++;
-  if (i > images.length - 1) i = 0;  // If i is greater than or equal to images.length - 1, it means we've reached or exceeded the last index of the array. In that case, i is reset to 0
+  if (i > images.length - 1) i = 0;  // If i is greater than or equal to images.lengxth - 1, it means we've reached or exceeded the last index of the array. In that case, i is reset to 0
   imageEl.style.backgroundImage = `url(${images[i]})`;
 }
 
@@ -59,15 +59,16 @@ loader();
 
 gsap.registerPlugin(ScrollTrigger);
 
-gsap.from(".an-hero", {
-  duration: 0.6,
+gsap.from(".an-hero, .motion-button", {
+  duration: 1.6,
+  delay: 2,
   y: -150,
   stagger: 0.3,
 });
 
 gsap.from(".an-services", {
   scrollTrigger: ".an-services",
-  duration: 0.5,
+  duration: 1.6,
   opacity: 1,
   x: -150,
   stagger: 0.12,
@@ -81,21 +82,30 @@ gsap.from(".an-img", {
 });
 
 gsap.from(".an-membership", {
-  scrollTrigger: ".an-membership",
   duration: 0.6,
   opacity: 0,
   y: -150,
-  stagger: 0.3,
-  delay: 0.3,
+  scrollTrigger: {
+    trigger: ".an-membership",
+    start: "top 30%",
+    // markers:true,
+    end: "center 20%",
+    scrub: 2
+  }
 });
 
 gsap.from(".an-cards", {
-  scrollTrigger: ".an-cards",
+  scrollTrigger: {
+    trigger: ".an-membership",
+    start: "top 10%",
+    // markers:true,
+    end: "top 40%",
+    scrub: 2
+  },
   duration: 1,
   opacity: 0,
   y: -80,
   stagger: 0.2,
-  delay: 1,
 });
 
 gsap.from(".an-team", {
@@ -117,10 +127,16 @@ gsap.from(".an-team-end", {
 });
 
 gsap.from(".an-email", {
-  scrollTrigger: ".an-email",
+  scrollTrigger: {
+    trigger: ".an-email",
+    start: "top 40%",
+    end: "top 50%",
+    // markers  : true,
+    scrub:2
+  },
   duration: 0.8,
   opacity: 0,
-  y: -150,
+  x: -150,
   stagger: 0.25,
   delay: 0.4,
 });
@@ -135,8 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const emailInput = document.getElementById('emailInput');
     const email = emailInput.value;
-    const firstNameInput = document.getElementById('firstName'); // Update this line
-    const firstName = firstNameInput.value; // Update this line
 
     try {
       // Send a POST request to your server's /subscribe route
@@ -145,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function () {
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email , firstName})
+        body: JSON.stringify({ email })
       });
 
       if (response.ok) {
@@ -183,19 +197,19 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Openweather Display and Error Handling
-document.getElementById('get-weather').addEventListener('click', async () => {
-  const city = document.getElementById('city').value;
+// document.getElementById('get-weather').addEventListener('click', async () => {
+//   const city = document.getElementById('city').value;
 
-  try {
-      const response = await fetch(`/weather?city=${encodeURIComponent(city)}`);
-      const weatherData = await response.json();
+//   try {
+//       const response = await fetch(`/weather?city=${encodeURIComponent(city)}`);
+//       const weatherData = await response.json();
 
-      document.getElementById('weather-display').innerHTML = `
-          <p>Temperature: ${weatherData.temperature}°C</p>
-          <p>Description: ${weatherData.weatherDescription}</p>
-      `;
-  } catch (error) {
-      console.error('Error fetching weather:', error);
-      document.getElementById('weather-display').innerHTML = '<p>Error fetching weather data</p>';
-  }
-});
+//       document.getElementById('weather-display').innerHTML = `
+//           <p>Temperature: ${weatherData.temperature}°C</p>
+//           <p>Description: ${weatherData.weatherDescription}</p>
+//       `;
+//   } catch (error) {
+//       console.error('Error fetching weather:', error);
+//       document.getElementById('weather-display').innerHTML = '<p>Error fetching weather data</p>';
+//   }
+// });
