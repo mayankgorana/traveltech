@@ -7,10 +7,17 @@
 * {
   box-sizing: border-box;
   font-family: "Poppins", sans-serif;
+    font-weight: 400;
+  font-style: normal;
 }
 
 body::-webkit-scrollbar {
   display: none;
+}
+
+@font-face {
+  font-family: "trektechHeading";
+  src: url("../FontFamilies/Rejouice-Headline.ttf");
 }
 
 /* loader */
@@ -25,10 +32,14 @@ body::-webkit-scrollbar {
   gap: 10px;
   position: fixed;
   z-index: 999;
+  font-family: "trektechHeading" !important;
 }
 
 #loader h3 {
   font-size: 2vw;
+  letter-spacing: 5px;
+  font-family: "trektechHeading" !important;
+
 }
 
 #loader h3:nth-child(2) {
@@ -190,7 +201,8 @@ body::-webkit-scrollbar {
 
 /* Services section */
 .services {
-  padding: 8rem calc((100vw - 1200px) / 2);
+  padding: 4rem calc((100vw - 1200px) / 2);
+  overflow-x: hidden !important;
 }
 
 .services__container {
@@ -331,7 +343,7 @@ body::-webkit-scrollbar {
 /* Team Section */
 
 .team {
-  padding: 5rem calc((100vw - 1100px) / 2);
+  padding: 3rem calc((100vw - 1100px) / 2);
 }
 
 .team__wrapper {
@@ -572,7 +584,6 @@ form {
   text-decoration: none;
   color: var(--white);
   margin-bottom: 1rem;
-  transition: all 0.3s ease-in-out;
 }
 
 .footer__link:hover {

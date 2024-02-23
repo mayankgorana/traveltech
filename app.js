@@ -2,9 +2,9 @@
 
 import express from 'express';
 import { config } from 'dotenv';
-import axios from 'axios';
+// import axios from 'axios';
 import mailchimp from '@mailchimp/mailchimp_marketing';
-import { name } from 'ejs';
+// import { name } from 'ejs';
 
 config({ path: 'process.env' });
 

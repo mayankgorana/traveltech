@@ -67,7 +67,12 @@ gsap.from(".an-hero, .motion-button", {
 });
 
 gsap.from(".an-services", {
-  scrollTrigger: ".an-services",
+  scrollTrigger: {
+    trigger: ".an-services",
+    // markers: true,
+    end:"center 40%",
+    scrub:2
+  },
   duration: 1.6,
   opacity: 1,
   x: -150,
@@ -75,10 +80,15 @@ gsap.from(".an-services", {
 });
 
 gsap.from(".an-img", {
-  scrollTrigger: ".an-services",
+  scrollTrigger: {
+    trigger: ".an-services",
+    // markers: true,
+    end:"center 40%",
+    scrub:2
+  },
   duration: 1.2,
   opacity: 0,
-  x: -200,
+  x: 200,
 });
 
 gsap.from(".an-membership", {
@@ -129,10 +139,10 @@ gsap.from(".an-team-end", {
 gsap.from(".an-email", {
   scrollTrigger: {
     trigger: ".an-email",
-    start: "top 40%",
-    end: "top 50%",
+    start: "top 70%",
+    end: "center 50%",
     // markers  : true,
-    scrub:2
+    scrub: 2
   },
   duration: 0.8,
   opacity: 0,
@@ -141,9 +151,40 @@ gsap.from(".an-email", {
   delay: 0.4,
 });
 
+
+gsap.from(".footer__link , .footer__title", {
+  scrollTrigger: {
+    trigger: ".footer__links",
+    start: "top 70%",
+    // markers:true,
+    end: "top 75%",
+    scrub: 2
+  },
+  duration: 1.5,
+  opacity: 0,
+  y: -80,
+  delay:2,
+  stagger: 0.2,
+});
+
+gsap.from(".footer_content", {
+  scrollTrigger: {
+    trigger: ".footer__links",
+    start: "top 70%",
+    // markers:true,
+    end: "top 75%",
+    scrub: 2
+  },
+  duration: 1.5,
+  opacity: 0,
+  x: -80,
+  delay:2,
+  stagger: 0.2,
+});
+
 // MailChimp Display and Error Handling
 document.addEventListener('DOMContentLoaded', function () {
-  const subscribeForm = document.getElementById('subscribeForm');
+  // const subscribeForm = document.getElementById('subscribeForm');
   const subscribeButton = document.getElementById('subscribeButton');
 
   subscribeButton.addEventListener('click', async function (event) {
