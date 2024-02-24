@@ -70,8 +70,8 @@ gsap.from(".an-services", {
   scrollTrigger: {
     trigger: ".an-services",
     // markers: true,
-    end:"center 40%",
-    scrub:2
+    end: "center 40%",
+    scrub: 2
   },
   duration: 1.6,
   opacity: 1,
@@ -83,8 +83,8 @@ gsap.from(".an-img", {
   scrollTrigger: {
     trigger: ".an-services",
     // markers: true,
-    end:"center 40%",
-    scrub:2
+    end: "center 40%",
+    scrub: 2
   },
   duration: 1.2,
   opacity: 0,
@@ -163,7 +163,7 @@ gsap.from(".footer__link , .footer__title", {
   duration: 1.5,
   opacity: 0,
   y: -80,
-  delay:2,
+  delay: 2,
   stagger: 0.2,
 });
 
@@ -178,7 +178,7 @@ gsap.from(".footer_content", {
   duration: 1.5,
   opacity: 0,
   x: -80,
-  delay:2,
+  delay: 2,
   stagger: 0.2,
 });
 
