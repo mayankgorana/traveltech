@@ -1,0 +1,21 @@
+<%- include('partials/header.ejs') %>
+    <%- include('partials/navbar.ejs') %>
+
+    <div class="contact-div">
+        <div id="map">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d116078.31354746528!2d73.62247039594104!3d24.608263766801173!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3967e56550a14411%3A0xdbd8c28455b868b0!2sUdaipur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1708870945894!5m2!1sen!2sin" width="600" height="500" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      
+        <div id="contact-form">
+          <h2>Contact Us</h2>
+          <form id="contactForm">
+            <input type="text" id="name" class="name-field" name="name" placeholder="Your Name" required><br>
+            <input type="tel" id="phone" class="phone-field" name="phone" placeholder="Your Phone Number"><br>
+            <input type="email" id="email" class="email-field" name="email" placeholder="Your Email" required><br>
+            <textarea id="message" name="message" class="message-field" rows="5" placeholder="Your Message" required></textarea><br>
+            <input type="submit" id="submit-btn" value="Submit">
+          </form>
+        </div>
+      </div>
+
+        <%- include('partials/footer.ejs') %>

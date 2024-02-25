@@ -1,53 +1,48 @@
 <%- include('partials/header.ejs') %>
-<div id="loader">
-  <h3>Discover</h3>
-  <h3>Your</h3>
-  <h3>World</h3>
-  <h3>.</h3>
-  <h3>.</h3>
-</div>
-<%- include('partials/navbar.ejs') %>
+  <!-- <div id="loader">
+    <h3>Discover</h3>
+    <h3>Your</h3>
+    <h3>World</h3>
+    <h3>.</h3>
+    <h3>.</h3>
+  </div> -->
+  <%- include('partials/navbar.ejs') %>
 
-  <%- include('partials/heropartial.ejs') %>
+    <%- include('partials/heropartial.ejs') %>
 
-    <%- include('partials/servicepartial.ejs') %>
+      <%- include('partials/servicepartial.ejs') %>
 
-      <%- include('partials/planpartial.ejs') %>
+        <%- include('partials/planpartial.ejs') %>
 
-        <%- include('partials/teampartial.ejs') %>
+          <%- include('partials/teampartial.ejs') %>
 
-          <!-- Email Section -->
-          <div class="email" id="emailcontent">
-            <!-- https://player.vimeo.com/external/559560916.sd.mp4?s=05910a54129d4b5e0fc0e30670226757661fa74f&profile_id=164&oauth2_token_id=57447761 -->
-            <video autoplay muted loop class="video-background">
-              <source
-                src="https://player.vimeo.com/external/418600800.sd.mp4?s=011003a57b02f07205ce2448a8314cc1a9c9834c&profile_id=164&oauth2_token_id=57447761"
-                type="video/mp4">
+            <!-- Email Section -->
+            <div class="email" id="emailcontent">
+              <!-- https://player.vimeo.com/external/559560916.sd.mp4?s=05910a54129d4b5e0fc0e30670226757661fa74f&profile_id=164&oauth2_token_id=57447761 -->
+              <video autoplay muted loop class="video-background">
+                <source
+                  src="https://player.vimeo.com/external/418600800.sd.mp4?s=011003a57b02f07205ce2448a8314cc1a9c9834c&profile_id=164&oauth2_token_id=57447761"
+                  type="video/mp4">
 
-              Your browser does not support the video tag.
-            </video>
-            <div class="dark-overlay"></div> <!-- New overlay div -->
-            <div class="email__content" >
-              <h1 class="an-email">Get Access to Members Only Perks</h1>
-              <p class="an-email">
-                Sign up for our newsletter below to get $50 off your first solo trip!
-              </p>
-              <form id="subscribeForm" class="an-email" action="/subscribe" method="post">
-                <div class="form__wrap">
-                  <label for="email">
-                    <input id="emailInput" type="email" name="email" placeholder="Enter your email" required />
-                  </label>
-                  <button id="subscribeButton" class="button" type="submit">Subscribe</button>
-                </div>
-              </form>
+                Your browser does not support the video tag.
+              </video>
+              <div class="dark-overlay"></div> <!-- New overlay div -->
+              <div class="email__content">
+                <h1 class="an-email">Get Access to Members Only Perks</h1>
+                <p class="an-email">
+                  Sign up for our newsletter below to get $50 off your first solo trip!
+                </p>
+                <form id="subscribeForm" class="an-email" action="/subscribe" method="post">
+                  <div class="form__wrap">
+                    <label for="email">
+                      <input id="emailInput" type="email" name="email" placeholder="Enter your email" required />
+                    </label>
+                    <button id="subscribeButton" class="button" type="submit">Subscribe</button>
+                  </div>
+                </form>
+              </div>
             </div>
-          </div>
-          <div style="height: 10vh; color: #fff;"></div>
-          <!-- <h1>Get Weather Information</h1>
-          <input type="text" id="city" placeholder="Enter city name">
-          <button id="get-weather">Get Weather</button>
-          <br>
-          <div id="weather-display"></div> -->
 
+            <div style="height: 0.5vh; background-color: rgb(208, 208, 208)"></div>
 
-          <%- include('partials/footer.ejs') %>
+            <%- include('partials/footer.ejs') %>

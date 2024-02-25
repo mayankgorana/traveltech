@@ -1,10 +1,6 @@
-// app.js
-
 import express from 'express';
 import { config } from 'dotenv';
-// import axios from 'axios';
 import mailchimp from '@mailchimp/mailchimp_marketing';
-// import { name } from 'ejs';
 
 config({ path: 'process.env' });
 
@@ -22,16 +18,12 @@ app.use(express.static('public'));
 const apiKey = process.env.MAILCHIMP_API_KEY;
 const audienceId = process.env.MAILCHIMP_AUDIENCE_ID;
 
-// Openweather API key
-// const openWeatherMapApiKey = process.env.OPENWEATHERMAP_API_KEY;
-
 // Initialize Mailchimp SDK
 mailchimp.setConfig({
   apiKey: apiKey,
   server: 'us10', // The server prefix us10
 });
 
-// Serve index.html on root path
 app.get('/', (req, res) => {
   res.render(`index.ejs`);
 });
@@ -48,28 +40,13 @@ app.get('/team', (req, res) => {
   res.render(`team.ejs`);
 });
 
-app.get('/kaushal_guide', (req, res) => {
-  res.render(`kaushal.ejs`);
+app.get('/contact', (req, res) => {
+  res.render(`contact.ejs`);
 });
 
-// Weather endpoint
-// app.get('/weather', async (req, res) => {
-//   const cityName = req.query.city;
-
-//   const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${openWeatherMapApiKey}`;
-
-//   try {
-//     const response = await axios.get(apiUrl);
-//     const data = response.data;
-
-//     const temperature = Math.round(data.main.temp - 273.15); // Convert from Kelvin to Celsius
-//     const weatherDescription = data.weather[0].description;
-//     res.json({ temperature, weatherDescription });
-//   } catch (error) {
-//     console.error('Error fetching weather:', error);
-//     res.status(500).send('Error fetching weather data');
-//   }
-// });
+app.get('/packages', (req, res) => {
+  res.render(`packages.ejs`);
+});
 
 // Route to handle subscription form submission
 app.post('/subscribe', async (req, res) => {

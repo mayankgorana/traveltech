@@ -23,7 +23,7 @@ window.setInterval(changePicture, 5000);
 let i = 0;
 function changePicture() {
   i++;
-  if (i > images.length - 1) i = 0;  // If i is greater than or equal to images.lengxth - 1, it means we've reached or exceeded the last index of the array. In that case, i is reset to 0
+  if (i > images.length - 1) i = 0;  // If i is greater than images.lengxth - 1, it means we've reached or exceeded the last index of the array. In that case, i is reset to 0
   imageEl.style.backgroundImage = `url(${images[i]})`;
 }
 
@@ -35,7 +35,7 @@ function loader() {
   tl.from("#loader h3", {
     x: 60,
     opacity: 0,
-    duration: 1.2,
+    duration: 1,
     stagger: 0.1,
   })
   tl.to("#loader h3", {
@@ -216,6 +216,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Clear the email input field
         emailInput.value = '';
       } else {
+        // Show SweetAlert success alert
         Swal.fire({
           position: 'center-center',
           icon: 'error',
@@ -237,20 +238,22 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
-// Openweather Display and Error Handling
-// document.getElementById('get-weather').addEventListener('click', async () => {
-//   const city = document.getElementById('city').value;
-
-//   try {
-//       const response = await fetch(`/weather?city=${encodeURIComponent(city)}`);
-//       const weatherData = await response.json();
-
-//       document.getElementById('weather-display').innerHTML = `
-//           <p>Temperature: ${weatherData.temperature}°C</p>
-//           <p>Description: ${weatherData.weatherDescription}</p>
-//       `;
-//   } catch (error) {
-//       console.error('Error fetching weather:', error);
-//       document.getElementById('weather-display').innerHTML = '<p>Error fetching weather data</p>';
-//   }
-// });
+// Contact us form
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+  // You can add your form submission logic here, like sending the data to a server
+  // For this example, let's just log the form data to the console
+  let formData = new FormData(this);
+  for (let [name, value] of formData.entries()) {
+    console.log(name + ": " + value);
+  }
+  Swal.fire({
+    position: 'center-center',
+    icon: 'success',
+    title: 'Subscribed',
+    text: 'Thank you for Contacting Us',
+    showConfirmButton: false,
+    timer: 2000,
+  });
+  this.reset(); // Reset the form after submission
+});
