@@ -32,10 +32,6 @@ app.get('/services', (req, res) => {
   res.render(`services.ejs`);
 });
 
-app.get('/plans', (req, res) => {
-  res.render(`plans.ejs`);
-});
-
 app.get('/team', (req, res) => {
   res.render(`team.ejs`);
 });

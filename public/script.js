@@ -220,8 +220,8 @@ document.addEventListener('DOMContentLoaded', function () {
         Swal.fire({
           position: 'center-center',
           icon: 'error',
-          title: 'Existing Subscriber',
-          text: 'This email is already subscribed our newsletter',
+          title: 'Oops...',
+          text: 'Something went wrong! Please try again.',
         });
 
       }
