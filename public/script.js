@@ -184,7 +184,6 @@ gsap.from(".footer_content", {
 
 // MailChimp Display and Error Handling
 document.addEventListener('DOMContentLoaded', function () {
-  // const subscribeForm = document.getElementById('subscribeForm');
   const subscribeButton = document.getElementById('subscribeButton');
 
   subscribeButton.addEventListener('click', async function (event) {
@@ -194,7 +193,6 @@ document.addEventListener('DOMContentLoaded', function () {
     const email = emailInput.value;
 
     try {
-      // Send a POST request to your server's /subscribe route
       const response = await fetch('/subscribe', {
         method: 'POST',
         headers: {
@@ -204,7 +202,6 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       if (response.ok) {
-        // Show SweetAlert success alert
         Swal.fire({
           position: 'center-center',
           icon: 'success',
@@ -213,10 +210,8 @@ document.addEventListener('DOMContentLoaded', function () {
           showConfirmButton: false,
           timer: 1500,
         });
-        // Clear the email input field
         emailInput.value = '';
       } else {
-        // Show SweetAlert success alert
         Swal.fire({
           position: 'center-center',
           icon: 'error',
@@ -227,7 +222,6 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     } catch (error) {
       console.error('Error subscribing:', error);
-      // Show SweetAlert error alert for subscription failure
       Swal.fire({
         position: 'center-center',
         icon: 'error',
@@ -240,9 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // Contact us form
 document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent the default form submission
-  // You can add your form submission logic here, like sending the data to a server
-  // For this example, let's just log the form data to the console
+  event.preventDefault(); 
   let formData = new FormData(this);
   for (let [name, value] of formData.entries()) {
     console.log(name + ": " + value);
@@ -255,5 +247,5 @@ document.getElementById("contactForm").addEventListener("submit", function(event
     showConfirmButton: false,
     timer: 2000,
   });
-  this.reset(); // Reset the form after submission
+  this.reset(); 
 });
