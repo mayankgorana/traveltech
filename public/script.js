@@ -155,9 +155,9 @@ gsap.from(".an-email", {
 gsap.from(".footer__link , .footer__title", {
   scrollTrigger: {
     trigger: ".footer__links",
-    start: "top 70%",
+    start: "top 80%",
     // markers:true,
-    end: "top 75%",
+    end: "top 81%",
     scrub: 2
   },
   duration: 1.5,
@@ -170,9 +170,9 @@ gsap.from(".footer__link , .footer__title", {
 gsap.from(".footer_content", {
   scrollTrigger: {
     trigger: ".footer__links",
-    start: "top 70%",
+    start: "top 80%",
     // markers:true,
-    end: "top 75%",
+    end: "top 81%",
     scrub: 2
   },
   duration: 1.5,
