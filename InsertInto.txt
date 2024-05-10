@@ -1,0 +1,1 @@
+INSERT INTO packages (anchor, image, stars, heading, place, duration, strikeprice, discountprice, reviews) VALUES

@@ -1,11 +1,24 @@
 import express from 'express';
 import { config } from 'dotenv';
 import mailchimp from '@mailchimp/mailchimp_marketing';
+import pg from 'pg';
 
 config({ path: 'process.env' });
 
 const app = express();
 const Port = 3000;
+
+const db = new pg.Client({
+  user: 'postgres',
+  password: "12345",
+  database: "travelTech",
+  host: "localhost",
+  port: 5432
+});
+
+db.connect();
+
+let packages = [];
 
 // Middleware to parse JSON and URL-encoded bodies
 app.use(express.json());
@@ -40,8 +53,12 @@ app.get('/contact', (req, res) => {
   res.render(`contact.ejs`);
 });
 
-app.get('/packages', (req, res) => {
-  res.render(`packages.ejs`);
+app.get('/packages', async (req, res) => {
+  const result = await db.query("SELECT * FROM packages");
+  const packages = result.rows;
+  res.render("packages.ejs", {packages: packages});
+  console.log(packages);
+
 });
 
 // Route to handle subscription form submission

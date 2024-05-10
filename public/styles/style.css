@@ -1,4 +1,3 @@
-
 :root {
   --red: #f9032f;
   --black: #000;
@@ -67,7 +66,7 @@ body::-webkit-scrollbar {
 
 .navbar__logo:hover {
   color: var(--red);
-  transition-delay: 0.1s; 
+  transition-delay: 0.1s;
 }
 
 .navbar__link {
@@ -80,7 +79,7 @@ body::-webkit-scrollbar {
 
 .navbar__link:hover {
   color: var(--red);
-  transition-delay: 0.1s; 
+  transition-delay: 0.1s;
 }
 
 @media screen and (max-width: 768px) {
@@ -157,7 +156,7 @@ body::-webkit-scrollbar {
 
 .hero {
   background: linear-gradient(to right, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1)),
-  url("../images/stefan-stefancik-0wMmxNB6Xzc-unsplash.jpg");
+    url("../images/stefan-stefancik-0wMmxNB6Xzc-unsplash.jpg");
   background-position: center;
   background-size: cover;
   height: 100vh;
@@ -283,16 +282,16 @@ body::-webkit-scrollbar {
 }
 
 .membership__wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 1rem;
-  padding-bottom: 5rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 2rem 4rem 5rem;
 }
+
 
 .membership__card {
   padding: 20px;
-  margin: 0 1.5rem; 
+  margin: 0 1.5rem;
   height: auto;
   width: 400px;
   background: var(--white);
@@ -321,7 +320,7 @@ body::-webkit-scrollbar {
   margin-bottom: 2rem;
 }
 
-.membership__card a{
+.membership__card a {
   text-decoration: none;
   color: #000;
 }
@@ -365,12 +364,12 @@ body::-webkit-scrollbar {
   color: #f00;
 }
 
-.duration{
+.duration {
   color: #565656;
   font-size: 14px;
 }
 
-.place{
+.place {
   color: #565656;
   font-size: 16px;
 }
@@ -589,7 +588,7 @@ form {
 .footer {
   background: var(--black);
   padding: 5rem calc((100vw - 1300px) / 2);
-  padding-bottom: 2rem ;
+  padding-bottom: 2rem;
   color: var(--white);
   display: flex;
 }
@@ -709,7 +708,7 @@ form {
 #contact-form {
   width: 100%;
   height: auto;
-  padding:10px 20px;
+  padding: 10px 20px;
   box-sizing: border-box;
 }
 
@@ -720,7 +719,7 @@ form {
   margin-bottom: 5%;
 }
 
-#contact-form h2{
+#contact-form h2 {
   font-size: 40px;
 }
 
@@ -772,7 +771,7 @@ form {
 
 .contact {
   display: inline-block;
-  margin:20px auto ;
+  margin: 20px auto;
   padding-left: 0;
 }
 
@@ -824,8 +823,10 @@ form {
 
 /* Default Css */
 html {
-  line-height: 1.15; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
 }
 
 body {
@@ -844,15 +845,20 @@ h1 {
 }
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
 }
 
 
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 
@@ -862,10 +868,14 @@ a {
 
 
 abbr[title] {
-  border-bottom: none; /* 1 */
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
 }
+
 b,
 strong {
   font-weight: bolder;
@@ -875,8 +885,10 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: 1em; /* 2 */
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
 }
 
 small {
@@ -911,10 +923,14 @@ input,
 optgroup,
 select,
 textarea {
-  font-family: inherit; /* 1 */
-  font-size: 100%; /* 1 */
-  line-height: 1.15; /* 1 */
-  margin: 0; /* 2 */
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
 }
 
 button,
@@ -965,8 +981,10 @@ textarea {
 
 [type="checkbox"],
 [type="radio"] {
-  box-sizing: border-box; /* 1 */
-  padding: 0; /* 2 */
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
 }
 
 [type="number"]::-webkit-inner-spin-button,
@@ -975,8 +993,10 @@ textarea {
 }
 
 [type="search"] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
 }
 
 [type="search"]::-webkit-search-decoration {
@@ -984,8 +1004,10 @@ textarea {
 }
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
 }
 
 details {

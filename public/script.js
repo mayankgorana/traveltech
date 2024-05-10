@@ -1,3 +1,4 @@
+// Menu Responsive propery
 const menu = document.getElementById("mobile-menu");
 const menuLinks = document.querySelector(".navbar__menu");
 const body = document.querySelector("body");
