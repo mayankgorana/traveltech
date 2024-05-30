@@ -56,10 +56,18 @@ app.get('/contact', (req, res) => {
 app.get('/packages', async (req, res) => {
   const result = await db.query("SELECT * FROM packages");
   const packages = result.rows;
-  res.render("packages.ejs", {packages: packages});
-  console.log(packages);
+  res.render("packages.ejs", { packages: packages });
+  // console.log(packages);
 
 });
+
+app.get('/packages/:id', async (req, res) => {
+  const result = await db.query("Select * FROM packages WHERE id = $1", [req.params.id]);
+  const packages = result.rows[0];
+  console.log(result.rows[0]);
+  res.render("uniquePackage.ejs", {package : packages});
+})
+
 
 // Route to handle subscription form submission
 app.post('/subscribe', async (req, res) => {

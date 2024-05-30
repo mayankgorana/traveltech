@@ -1,0 +1,24 @@
+<%- include('partials/header.ejs') %>
+    <%- include('partials/navbar.ejs') %>
+        <% if(locals.package) {%>
+            <div class="team__text an-team-end">
+                <h1 class="topline"> 
+                    <%= package.heading %>
+                </h1>
+                <h2 class="team__desc">
+                    <%= package.duration %>
+                </h2>
+                <p class="team__desc">
+                    <%= package.place %>
+                </p>
+                <p class="team__desc">
+                    <%= package.strikeprice %>
+                </p>
+                <p>
+                    <%= package.discountprice %>
+                </p>
+                <img src="<%= package.image %>" alt="">
+            </div>
+            <% } else { %>
+                <h1>Something Went Wrong </h1>
+                <% } %>

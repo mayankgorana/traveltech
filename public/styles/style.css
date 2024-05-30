@@ -461,7 +461,7 @@ body::-webkit-scrollbar {
 .team__card:nth-child(4) {
   grid-row: 2/4;
   grid-column: 2/3;
-}
+} 
 
 .team__card:nth-child(5) {
   grid-row: 3/5;
