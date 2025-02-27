@@ -61,7 +61,7 @@ loader();
 gsap.registerPlugin(ScrollTrigger);
 
 gsap.from(".an-hero, .motion-button", {
-  duration: 1.6,
+  duration: 1.0,
   delay: 2,
   y: -150,
   stagger: 0.3,

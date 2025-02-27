@@ -1,11 +1,11 @@
 <%- include('partials/header.ejs') %>
-    <!-- <div id="loader">
+    <div id="loader">
         <h3>Discover</h3>
         <h3>Our</h3>
         <h3>Packages</h3>
         <h3>.</h3>
         <h3>.</h3>
-    </div> -->
+    </div>
     <%- include('partials/navbar.ejs') %>
         <div class="membership__section"
             style="padding:10px 0; background-color: #b3b3b32b !important; color:#000; overflow-x: hidden;">
@@ -15,7 +15,7 @@
             <div class="membership__wrapper">
                 <% packages.forEach(package=> { %>
                     <div class="membership__card an-cards">
-                        <a href="/packages/<%=package.id%>">
+                        <a href="/packages/<%=package.heading%>">
                             <div class="membership__title">
                                 <div class="card">
                                     <img src=<%=package.image %>
